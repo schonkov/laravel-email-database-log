@@ -4,7 +4,10 @@
         <title>Emails Log</title>
     </head>
 
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <body style="background: white;">
+        <a class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 dark:bg-gray-800 dark:border-gray-600" href="{{ route('email-log') }}">Back to All</a>
         <h1>Email:</h1>
 
         <ul>
@@ -21,7 +24,7 @@
                         @foreach($email->attachments as $attachment)
                             <li>
                                 @if(array_key_exists('route', $attachment))
-                                    <a href="{{ $attachment['route'] }}">{{ $attachment['name'] }}</a>
+                                    <a  class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 dark:bg-gray-800 dark:border-gray-600" href="{{ $attachment['route'] }}">{{ $attachment['name'] }}</a>
                                 @else
                                     {{ $attachment['name'] }} - {{ $attachment['message'] }}
                                 @endif
@@ -46,6 +49,6 @@
             </li>
         </ul>
 
-        <a href="{{ route('email-log') }}">Back to All</a>
+        <a class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 dark:bg-gray-800 dark:border-gray-600" href="{{ route('email-log') }}">Back to All</a>
     </body>
 </html>
