@@ -3,6 +3,9 @@
     <head>
         <title>Emails Log</title>
 
+        <!-- Tailwind CSS CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
         <style>
             ul.pagination {
                 list-style-type: none;
@@ -102,7 +105,7 @@
         <ul>
             @foreach($emails as $email)
                 <li>
-                    {{ $email->date }} - From: {{ $email->from }}, To: {{ $email->to }}, Subject: <strong>{{ $email->subject }}</strong> <a href="{{ route('email-log.show', $email->id) }}">VIEW</a>
+                    {{ $email->date }} - From: {{ $email->from }}, To: {{ $email->to }}, Subject: <strong>{{ $email->subject }}</strong> <a class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 dark:bg-gray-800 dark:border-gray-600" href="{{ route('email-log.show', $email->id) }}">VIEW</a>
                     <ul>
                         @foreach($email->events as $event)
                             <li><strong>{{ $event->event }}</strong> {{ $event->created_at }}</li>
